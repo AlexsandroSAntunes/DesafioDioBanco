@@ -8,11 +8,16 @@ package DesafioDiobBanco;
  *
  * @author Alexsandro
  */
-public class IConta {
-    
-    void sacar(double valor);
-    
-    void depositar(double valor);
-    
-    void transferir(double valor,Conta contadestino);    
+public abstract class IConta {
+
+    abstract void sacar(double valor);
+
+
+    void depositar(double valor) {
+
+    }
+
+    void transferir(double valor, Conta contadestino) {
+
+    }
 }

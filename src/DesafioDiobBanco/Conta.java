@@ -8,21 +8,39 @@ package DesafioDiobBanco;
  *
  * @author Alexsandro
  */
-public abstract class Conta implements IConta {
+public abstract class Conta extends IConta {
     private int agencia;
     private int numero;
     private double saldo;
 
     @Override
-    public void sacar(double valor){
-}
+    public void sacar(double valor) {
+        if (valor > 0 && valor <= saldo) {
+            saldo -= valor;
+        } else {
+            System.out.println("Saldo insuficiente ou valor inválido.");
+        }
+    }
+
     @Override
-    public void depositar (double valor){
-}
+    public void depositar(double valor) {
+        if (valor > 0) {
+            saldo += valor;
+        } else {
+            System.out.println("Valor inválido para depósito.");
+        }
+    }
+
     @Override
-    public void tranferir (double valor, Conta contaDestino){
-}
-    
+    public void transferir(double valor, Conta contaDestino) {
+        if (valor > 0 && valor <= saldo) {
+            this.sacar(valor);
+            contaDestino.depositar(valor);
+        } else {
+            System.out.println("Saldo insuficiente ou valor inválido para transferência.");
+        }
+    }
+
     public int getAgencia() {
         return agencia;
     }
@@ -34,6 +52,5 @@ public abstract class Conta implements IConta {
     public double getSaldo() {
         return saldo;
     }
-}    
-    
+}
 

@@ -11,11 +11,13 @@ package DesafioDiobBanco;
  */
 public class Cliente {
     private String nome;
-    
-    public String getNome(){
+
+    public String getNome() {
         return nome;
     }
-    public String setNome(String nome){
+
+    public void setNome(String nome) {
         this.nome = nome;
-     }
+    }
+    
 }
